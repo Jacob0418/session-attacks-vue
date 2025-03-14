@@ -6,8 +6,7 @@
     <div id="XSS">
       <h2 class="text-2xl font-bold mb-4 text-[#31475e]">Cross-Site Scripting (XSS)</h2>
       <p class="mb-4 text-[#31475e]">
-        XSS permite inyectar scripts maliciosos en páginas web vistas por otros
-        usuarios.
+        XSS permite inyectar scripts maliciosos en páginas web vistas por otros usuarios.
       </p>
       <form @submit.prevent="submitXSS" class="mb-4">
         <v-text-field
@@ -21,7 +20,12 @@
           color="primary"
           base-color="lineinput"
         ></v-text-field>
-        <button type="submit" class="bg-[#3FB984] text-white px-4 py-2 rounded-md cursor-pointer hover:scale-95 mt-5">Enviar</button>
+        <button
+          type="submit"
+          class="bg-[#3FB984] text-white px-4 py-2 rounded-md cursor-pointer hover:scale-95 mt-5"
+        >
+          Enviar
+        </button>
       </form>
       <div v-html="xssOutput" class="prose mb-4"></div>
       <div class="mb-4">
@@ -38,14 +42,14 @@
           type="submit"
           class="bg-[#3FB984] text-white px-4 py-2 rounded-md cursor-pointer hover:scale-95 w-32"
         >
-          {{ show ? "Ocultar Tip" : "Mostrar Tip" }}
+          {{ show ? 'Ocultar Tip' : 'Mostrar Tip' }}
         </button>
       </div>
       <div v-if="show">
         <h3 class="text-xl font-bold mb-2">Prevención de XSS:</h3>
         <p class="mb-2">
-          Para prevenir XSS, es importante escapar correctamente los datos de
-          entrada y utilizar métodos seguros para renderizar contenido HTML.
+          Para prevenir XSS, es importante escapar correctamente los datos de entrada y utilizar
+          métodos seguros para renderizar contenido HTML.
         </p>
         <ul class="list-disc list-inside">
           <li>Escapar caracteres especiales en el lado del servidor.</li>
@@ -58,16 +62,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue'
 
-const xssInput = ref("");
-const xssOutput = ref("");
+const xssInput = ref('')
+const xssOutput = ref('')
 
-const show = ref(false);
+const show = ref(false)
 
 const submitXSS = () => {
-  xssOutput.value = xssInput.value;
-};
+  xssOutput.value = xssInput.value
+}
 
 //Aqui debemos cambiar código para consumir el endpoint : /attacls/xss
 // Para obtener los comentarios de la base de datos
@@ -79,5 +83,5 @@ const comments: any[] = [
     comment:
       '<a href="https://userinyerface.com/" class="bg-[#31475e] text-white px-4 py-2 rounded-md cursor-pointer hover:scale-95 mt-5" > Clickeame </a>',
   },
-];
+]
 </script>
